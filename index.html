@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Moon Guard — Smart Parental Control Mobile Application. Final Year Project by Sajjad Irshad and team.">
+  <title>Moon Guard | Final Year Project</title>
+  <style>
+    :root { --navy:#10233f; --blue:#2563eb; --ink:#1e293b; --muted:#64748b; --bg:#f4f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
+    header { background:linear-gradient(135deg,#10233f,#1d4ed8); color:white; padding:64px 20px 58px; }
+    .wrap { width:min(980px,92%); margin:auto; }
+    .eyebrow { text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:700; opacity:.8; }
+    h1 { font-size:clamp(34px,6vw,54px); line-height:1.12; margin:14px 0; }
+    header p { max-width:720px; font-size:18px; color:#e2eaff; margin:0; }
+    main { padding:34px 0 60px; }
+    .card { background:white; border:1px solid #e5eaf2; border-radius:18px; padding:26px; margin:18px 0; box-shadow:0 8px 24px rgba(15,23,42,.045); }
+    h2 { color:var(--navy); margin:0 0 12px; font-size:23px; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; }
+    .meta div { background:#f8fafc; border-radius:12px; padding:14px; }
+    .meta strong { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.7px; }
+    .meta span { font-weight:600; }
+    .tags { display:flex; flex-wrap:wrap; gap:9px; padding:0; list-style:none; }
+    .tags li { background:#eff6ff; color:#1d4ed8; padding:7px 12px; border-radius:999px; font-size:14px; font-weight:600; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+    .btn { display:inline-block; text-decoration:none; padding:12px 18px; border-radius:10px; font-weight:700; background:var(--blue); color:white; }
+    .btn.secondary { background:#eaf0fb; color:var(--navy); }
+    .note { color:var(--muted); font-size:14px; }
+    footer { text-align:center; color:var(--muted); padding:24px 12px 36px; font-size:13px; }
+    @media(max-width:560px) { header { padding:48px 0; } .card { padding:20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Bachelor of Science in Computer Science · 2022–2026</div>
+      <h1>Moon Guard</h1>
+      <p>Smart Parental Control Mobile Application — a mobile solution designed to help parents support children's digital safety and responsible device usage.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Project Overview</h2>
+      <p>Moon Guard is a parental-control application that brings child profile management, activity monitoring, location tracking, restricted-keyword management, application restrictions, secure parent-child communication, and routine management into one platform.</p>
+      <p>The application was developed using Flutter and integrated with Supabase backend services. Firebase Cloud Messaging (FCM) supports push notifications.</p>
+    </section>
+
+    <section class="card">
+      <h2>Project Information</h2>
+      <div class="meta">
+        <div><strong>Student</strong><span>Sajjad Irshad</span></div>
+        <div><strong>University</strong><span>COMSATS University Islamabad, Sahiwal Campus</span></div>
+        <div><strong>Degree</strong><span>BS Computer Science</span></div>
+        <div><strong>Project Type</strong><span>Final Year Project</span></div>
+        <div><strong>Project Team</strong><span>Sajjad Irshad, Ahsan Azeem Zahid, Moosa Babar</span></div>
+        <div><strong>Supervisor</strong><span>Ms. Samra Firdous</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Technologies</h2>
+      <ul class="tags">
+        <li>Flutter</li><li>Dart</li><li>Supabase</li><li>PostgreSQL</li>
+        <li>Firebase Cloud Messaging</li><li>REST APIs</li><li>Android Services</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Individual Contribution</h2>
+      <p>Sajjad Irshad's individual contribution focused mainly on Flutter application development and technical implementation, including authentication, backend integration, child profiles, activity and screen-time monitoring, location monitoring, restricted-keyword management, parent-child chat, module integration, and testing.</p>
+      <p class="note">The contribution document provides further details about my role in the group project.</p>
+    </section>
+
+    <section class="card">
+      <h2>Project Documents</h2>
+      <p>Use the links below to view the submitted project report and individual contribution document.</p>
+      <div class="actions">
+        <a class="btn" href="https://drive.google.com/file/d/1G2mo0Iga_9j-I5NfhfmgFAKwVWS9kEvh/view?usp=drivesdk" target="_blank" rel="noopener">View Final Year Project Report</a>
+        <a class="btn secondary" href="https://drive.google.com/file/d/1HovXVH5auWmFgpnHJACf2xsc8jsjGbQM/view?usp=drivesdk" target="_blank" rel="noopener">View Individual Contribution – Sajjad Irshad</a>
+        <a class="btn secondary" href="https://github.com/sajjadirshad706/moon-guard" target="_blank" rel="noopener">View Complete Project on GitHub</a>
+      </div>
+      <p class="note" style="margin-top:14px">The links above open the project report, individual contribution document, and GitHub source repository.</p>
+    </section>
+  </main>
+
+  <footer>Moon Guard · Final Year Project · COMSATS University Islamabad, Sahiwal Campus</footer>
+</body>
+</html>
