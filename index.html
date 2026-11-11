@@ -1,90 +1,735 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Moon Guard — Smart Parental Control Mobile Application. Final Year Project by Sajjad Irshad and team.">
-  <title>Moon Guard | Final Year Project</title>
+
+  <meta name="description" content="Moon Guard - Smart Parental Control Mobile Application. Final Year Project by Sajjad Irshad, COMSATS University Islamabad.">
+
+  <meta name="theme-color" content="#10233f">
+
+  <title>Moon Guard | Sajjad Irshad - Final Year Project</title>
+
   <style>
-    :root { --navy:#10233f; --blue:#2563eb; --ink:#1e293b; --muted:#64748b; --bg:#f4f7fb; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
-    header { background:linear-gradient(135deg,#10233f,#1d4ed8); color:white; padding:64px 20px 58px; }
-    .wrap { width:min(980px,92%); margin:auto; }
-    .eyebrow { text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:700; opacity:.8; }
-    h1 { font-size:clamp(34px,6vw,54px); line-height:1.12; margin:14px 0; }
-    header p { max-width:720px; font-size:18px; color:#e2eaff; margin:0; }
-    main { padding:34px 0 60px; }
-    .card { background:white; border:1px solid #e5eaf2; border-radius:18px; padding:26px; margin:18px 0; box-shadow:0 8px 24px rgba(15,23,42,.045); }
-    h2 { color:var(--navy); margin:0 0 12px; font-size:23px; }
-    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; }
-    .meta div { background:#f8fafc; border-radius:12px; padding:14px; }
-    .meta strong { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.7px; }
-    .meta span { font-weight:600; }
-    .tags { display:flex; flex-wrap:wrap; gap:9px; padding:0; list-style:none; }
-    .tags li { background:#eff6ff; color:#1d4ed8; padding:7px 12px; border-radius:999px; font-size:14px; font-weight:600; }
-    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
-    .btn { display:inline-block; text-decoration:none; padding:12px 18px; border-radius:10px; font-weight:700; background:var(--blue); color:white; }
-    .btn.secondary { background:#eaf0fb; color:var(--navy); }
-    .note { color:var(--muted); font-size:14px; }
-    footer { text-align:center; color:var(--muted); padding:24px 12px 36px; font-size:13px; }
-    @media(max-width:560px) { header { padding:48px 0; } .card { padding:20px; } }
+    :root {
+      --navy: #10233f;
+      --blue: #2563eb;
+      --light-blue: #eff6ff;
+      --ink: #172b4d;
+      --muted: #64748b;
+      --bg: #f4f7fc;
+      --white: #ffffff;
+      --border: #e5eaf2;
+      --shadow: 0 12px 35px rgba(15, 35, 65, .07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 91%);
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 17px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -.5px;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #475569;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* Hero */
+
+    header {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(96,165,250,.2), transparent 30%),
+        linear-gradient(130deg, #10233f, #173d70 65%, #2563eb);
+      color: white;
+      padding: 85px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #bfdbfe;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 66px);
+      line-height: 1.1;
+      margin: 24px 0 18px;
+      letter-spacing: -2px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      color: #dbeafe;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 21px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-white {
+      background: white;
+      color: var(--navy);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255,255,255,.5);
+      color: white;
+    }
+
+    /* Main */
+
+    main {
+      padding: 45px 0 65px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 23px;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section p {
+      color: #475569;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    /* Project information */
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 15px;
+    }
+
+    .meta-item {
+      background: #f8fafc;
+      border: 1px solid #edf1f7;
+      border-radius: 12px;
+      padding: 17px;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .meta-item span {
+      font-weight: 650;
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    /* Highlights */
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 15px;
+    }
+
+    .highlight {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 19px;
+    }
+
+    .highlight h3 {
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .highlight p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    /* Technologies */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .tags li {
+      padding: 8px 15px;
+      background: var(--light-blue);
+      border: 1px solid #dbeafe;
+      color: #1d4ed8;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Contribution */
+
+    .contribution {
+      border-left: 4px solid var(--blue);
+      padding: 5px 0 5px 20px;
+    }
+
+    /* Documents */
+
+    .document-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 17px;
+    }
+
+    .document {
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 22px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: .25s;
+    }
+
+    .document:hover {
+      transform: translateY(-4px);
+      border-color: #93c5fd;
+      box-shadow: 0 10px 25px rgba(37,99,235,.08);
+    }
+
+    .document-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--light-blue);
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .document h3 {
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    .document p {
+      font-size: 13px;
+      flex-grow: 1;
+      margin-bottom: 17px;
+    }
+
+    .document-link {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 9px 15px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .document-link:hover {
+      background: #1d4ed8;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #10233f;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 35px 15px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media(max-width: 650px) {
+      nav {
+        padding: 15px 0;
+      }
+
+      .nav-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      header {
+        padding: 65px 0;
+      }
+
+      .section {
+        padding: 21px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Navigation -->
+
+  <nav>
+    <div class="container nav-content">
+      <a href="#" class="brand">MOON<span>GUARD</span></a>
+
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#information">Information</a>
+        <a href="#technologies">Technologies</a>
+        <a href="#documents">Documents</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+
   <header>
-    <div class="wrap">
-      <div class="eyebrow">Bachelor of Science in Computer Science · 2022–2026</div>
+    <div class="container">
+
+      <div class="eyebrow">
+        Bachelor of Science in Computer Science · 2022–2026
+      </div>
+
       <h1>Moon Guard</h1>
-      <p>Smart Parental Control Mobile Application — a mobile solution designed to help parents support children's digital safety and responsible device usage.</p>
+
+      <p class="hero-description">
+        Smart Parental Control Mobile Application — a mobile solution
+        designed to help parents support children's digital safety,
+        monitor activities, and encourage responsible device usage.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button button-white"
+           href="https://github.com/sajjadirshad706/moon-guard"
+           target="_blank" rel="noopener">
+          Explore GitHub Source Code →
+        </a>
+
+        <a class="button button-outline"
+           href="#documents">
+          View Project Documents
+        </a>
+      </div>
+
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Project Overview</h2>
-      <p>Moon Guard is a parental-control application that brings child profile management, activity monitoring, location tracking, restricted-keyword management, application restrictions, secure parent-child communication, and routine management into one platform.</p>
-      <p>The application was developed using Flutter and integrated with Supabase backend services. Firebase Cloud Messaging (FCM) supports push notifications.</p>
+  <main class="container">
+
+    <!-- Overview -->
+
+    <section class="section" id="overview">
+
+      <div class="section-heading">
+        <h2>Project Overview</h2>
+        <p>Introduction to the Moon Guard application</p>
+      </div>
+
+      <p>
+        Moon Guard is a Smart Parental Control Mobile Application
+        developed to provide parents with a centralized platform
+        for managing and monitoring their children's digital activities.
+      </p>
+
+      <p>
+        The application brings together child profile management,
+        activity monitoring, location tracking, restricted-keyword
+        management, application restrictions, secure parent-child
+        communication, and routine management.
+      </p>
+
+      <p>
+        The application was developed using Flutter and integrated
+        with Supabase backend services. Firebase Cloud Messaging
+        (FCM) supports push notifications.
+      </p>
+
     </section>
 
-    <section class="card">
-      <h2>Project Information</h2>
-      <div class="meta">
-        <div><strong>Student</strong><span>Sajjad Irshad</span></div>
-        <div><strong>University</strong><span>COMSATS University Islamabad, Sahiwal Campus</span></div>
-        <div><strong>Degree</strong><span>BS Computer Science</span></div>
-        <div><strong>Project Type</strong><span>Final Year Project</span></div>
-        <div><strong>Project Team</strong><span>Sajjad Irshad, Ahsan Azeem Zahid, Moosa Babar</span></div>
-        <div><strong>Supervisor</strong><span>Ms. Samra Firdous</span></div>
+    <!-- Project Information -->
+
+    <section class="section" id="information">
+
+      <div class="section-heading">
+        <h2>Project Information</h2>
+        <p>Academic and project details</p>
+      </div>
+
+      <div class="meta-grid">
+
+        <div class="meta-item">
+          <strong>Student</strong>
+          <span>Sajjad Irshad</span>
+        </div>
+
+        <div class="meta-item">
+          <strong>University</strong>
+          <span>COMSATS University Islamabad, Sahiwal Campus</span>
+        </div>
+
+        <div class="meta-item">
+          <strong>Degree</strong>
+          <span>BS Computer Science</span>
+        </div>
+
+        <div class="meta-item">
+          <strong>Project Type</strong>
+          <span>Final Year Project</span>
+        </div>
+
+        <div class="meta-item">
+          <strong>Project Team</strong>
+          <span>Sajjad Irshad, Ahsan Azeem Zahid, Moosa Babar</span>
+        </div>
+
+        <div class="meta-item">
+          <strong>Project Supervisor</strong>
+          <span>Ms. Samra Firdous</span>
+        </div>
+
       </div>
     </section>
 
-    <section class="card">
-      <h2>Technologies</h2>
+    <!-- Project Highlights -->
+
+    <section class="section">
+
+      <div class="section-heading">
+        <h2>Key Project Features</h2>
+        <p>Core functionalities of the Moon Guard application</p>
+      </div>
+
+      <div class="highlight-grid">
+
+        <div class="highlight">
+          <h3>Child Profile Management</h3>
+          <p>Manage child profiles and their associated information.</p>
+        </div>
+
+        <div class="highlight">
+          <h3>Activity Monitoring</h3>
+          <p>Monitor digital activities and screen-time usage.</p>
+        </div>
+
+        <div class="highlight">
+          <h3>Location Tracking</h3>
+          <p>Support parental awareness through location monitoring.</p>
+        </div>
+
+        <div class="highlight">
+          <h3>Restricted Keywords</h3>
+          <p>Manage restricted keywords and activity-related alerts.</p>
+        </div>
+
+        <div class="highlight">
+          <h3>Parent-Child Chat</h3>
+          <p>Provide secure communication between parents and children.</p>
+        </div>
+
+        <div class="highlight">
+          <h3>Application Restrictions</h3>
+          <p>Support responsible device usage through application controls.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Technologies -->
+
+    <section class="section" id="technologies">
+
+      <div class="section-heading">
+        <h2>Technologies & Tools</h2>
+        <p>Development technologies used in the project</p>
+      </div>
+
       <ul class="tags">
-        <li>Flutter</li><li>Dart</li><li>Supabase</li><li>PostgreSQL</li>
-        <li>Firebase Cloud Messaging</li><li>REST APIs</li><li>Android Services</li>
+        <li>Flutter</li>
+        <li>Dart</li>
+        <li>Supabase</li>
+        <li>PostgreSQL</li>
+        <li>Firebase Cloud Messaging</li>
+        <li>REST APIs</li>
+        <li>Android Services</li>
       </ul>
+
     </section>
 
-    <section class="card">
-      <h2>Individual Contribution</h2>
-      <p>Sajjad Irshad's individual contribution focused mainly on Flutter application development and technical implementation, including authentication, backend integration, child profiles, activity and screen-time monitoring, location monitoring, restricted-keyword management, parent-child chat, module integration, and testing.</p>
-      <p class="note">The contribution document provides further details about my role in the group project.</p>
-    </section>
+    <!-- Individual Contribution -->
 
-    <section class="card">
-      <h2>Project Documents</h2>
-      <p>Use the links below to view the submitted project report and individual contribution document.</p>
-      <div class="actions">
-        <a class="btn" href="https://drive.google.com/file/d/1G2mo0Iga_9j-I5NfhfmgFAKwVWS9kEvh/view?usp=drivesdk" target="_blank" rel="noopener">View Final Year Project Report</a>
-        <a class="btn secondary" href="https://drive.google.com/file/d/1HovXVH5auWmFgpnHJACf2xsc8jsjGbQM/view?usp=drivesdk" target="_blank" rel="noopener">View Individual Contribution – Sajjad Irshad</a>
-        <a class="btn secondary" href="https://github.com/sajjadirshad706/moon-guard" target="_blank" rel="noopener">View Complete Project on GitHub</a>
+    <section class="section">
+
+      <div class="section-heading">
+        <h2>Individual Contribution</h2>
+        <p>My role and technical responsibilities</p>
       </div>
-      <p class="note" style="margin-top:14px">The links above open the project report, individual contribution document, and GitHub source repository.</p>
+
+      <div class="contribution">
+
+        <p>
+          Sajjad Irshad's individual contribution focused mainly on
+          Flutter application development and technical implementation,
+          including authentication, backend integration, child profiles,
+          activity and screen-time monitoring, location monitoring,
+          restricted-keyword management, parent-child chat,
+          module integration, and testing.
+        </p>
+
+        <p>
+          The individual contribution document provides further
+          details about my responsibilities, technical work,
+          and contribution to the group project.
+        </p>
+
+      </div>
+
     </section>
+
+    <!-- Documents and Certificate -->
+
+    <section class="section" id="documents">
+
+      <div class="section-heading">
+        <h2>Project Documents & Certificate</h2>
+        <p>
+          Official academic documentation, project report,
+          individual contribution, and project source code.
+        </p>
+      </div>
+
+      <div class="document-grid">
+
+        <!-- FYP Certificate -->
+
+        <div class="document">
+          <div class="document-icon">🏆</div>
+
+          <h3>Moon Guard FYP Certificate</h3>
+
+          <p>
+            View the certificate associated with the
+            Moon Guard Final Year Project.
+          </p>
+
+          <a class="document-link"
+             href="https://drive.google.com/file/d/1NOVtH73DzB4XLdVHLBHKXvd1KI5SEsoM/view?usp=drivesdk"
+             target="_blank" rel="noopener">
+            View Certificate →
+          </a>
+        </div>
+
+        <!-- Updated FYP Report -->
+
+        <div class="document">
+          <div class="document-icon">📄</div>
+
+          <h3>Final Year Project Report</h3>
+
+          <p>
+            Access the updated official Moon Guard
+            Final Year Project report.
+          </p>
+
+          <a class="document-link"
+             href="https://drive.google.com/file/d/1cjKmLaLQKz9w0gcaE2681qZVFNeaw_gg/view?usp=drivesdk"
+             target="_blank" rel="noopener">
+            View FYP Report →
+          </a>
+        </div>
+
+        <!-- Individual Contribution -->
+
+        <div class="document">
+          <div class="document-icon">📑</div>
+
+          <h3>Individual Contribution</h3>
+
+          <p>
+            Detailed documentation of Sajjad Irshad's
+            individual role and technical contributions.
+          </p>
+
+          <a class="document-link"
+             href="https://drive.google.com/file/d/1HovXVH5auWmFgpnHJACf2xsc8jsjGbQM/view?usp=drivesdk"
+             target="_blank" rel="noopener">
+            View Contribution →
+          </a>
+        </div>
+
+        <!-- GitHub Source Code -->
+
+        <div class="document">
+          <div class="document-icon">💻</div>
+
+          <h3>GitHub Project Source Code</h3>
+
+          <p>
+            Explore the Moon Guard project repository
+            and its development source code.
+          </p>
+
+          <a class="document-link"
+             href="https://github.com/sajjadirshad706/moon-guard"
+             target="_blank" rel="noopener">
+            View GitHub Repository →
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer>Moon Guard · Final Year Project · COMSATS University Islamabad, Sahiwal Campus</footer>
+  <!-- Footer -->
+
+  <footer>
+    <p><strong>Moon Guard</strong> · Smart Parental Control Mobile Application</p>
+
+    <p>
+      Final Year Project · BS Computer Science
+    </p>
+
+    <p>
+      COMSATS University Islamabad, Sahiwal Campus
+    </p>
+
+    <p style="margin-top:12px">
+      © 2026 Sajjad Irshad. All Rights Reserved.
+    </p>
+  </footer>
+
 </body>
 </html>
